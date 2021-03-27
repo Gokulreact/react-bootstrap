@@ -1,0 +1,11 @@
+.logo-box {
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+
+img.logo-icon {
+    width: 17em;
+    margin: 20px;
+    position: relative;
+}
