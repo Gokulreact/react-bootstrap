@@ -1,24 +1,61 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from 'react-bootstrap/Container';
 
 class AddData extends Component {
+  constructor(){
+    super();
+     this.state = {
+      category: " ",
+    };
+
+  }
+  
+
+  add =(e) =>{
+     e.preventDefault();
+    if(this.state.category === ""){
+      alert ("Please enter category");
+      return;
+    } 
+    //console.log(this.state)
+    this.props.addCategoryHandler(this.state);
+    this.setState({category:""});
+    //alert("helo")
+  }
+  
   render() {
     return (
       <div className="addBox">
-        <Form>
-          <Form.Group controlId="formCategoryName" as={Row}>
-            <Form.Label column sm="3">Category Name</Form.Label>
-            <Col sm="8"><Form.Control type="text" placeholder="Enter category Name" /></Col>
-            
+      <Container>
+        
+       <Form onSubmit={this.add}>
+          <Form.Group controlId="formCategoryName" as={Row} >
+            <Form.Label column sm="3">
+              Category Name
+            </Form.Label>
+            <Col sm="7">
+              <Form.Control type="text" 
+               placeholder="Enter category Name"
+               value ={this.state.category}
+               onChange ={(e) =>{ 
+                 this.setState({category: e.target.value})
+                }} />
+            </Col>
           </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Submit
+          <Button variant="primary" type="submit" >
+          Submit
           </Button>
+        
         </Form>
+             
+             
+        </Container>
+
+        
       </div>
     );
   }
