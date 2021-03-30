@@ -3,8 +3,8 @@ import AccordionShow from "./AccordionShow";
 // import Accordion from "react-bootstrap/Accordion";
 // import Card from "react-bootstrap/Card";
 const AccordionData = (props) => {
-  //console.log(props)
-
+  console.log("Have Data",props)
+  
   const renderPropsData = props.contacts.map((contact) => {
     return (
       <div>
