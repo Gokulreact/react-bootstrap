@@ -15,7 +15,7 @@ function App() {
 
 
   const addCategoryHandler = (category) =>{
-    console.log(category);
+    console.log("category", category);
     //setContacts([...contacts,  category: {id: uuid(), name: category, subcategory: {id:uuid(), link: "gokul.com", name:"SubCat1"}}]);
    setContacts([...contacts, {
       Lists: [{
@@ -29,6 +29,7 @@ function App() {
       }]
     }])
     
+    
    /*  setContacts([...contacts, {
       Lists:[{
         id:"1",
@@ -37,12 +38,28 @@ function App() {
   //console.log(...contacts)
   
   }
-  const addSubCatHandler = (subcategory) =>{
-  // console.log(subcategory);
+  //console.log(contacts)
+  const addSubCatHandler = (subcategorys) =>{
+   console.log(contacts);
+   console.log(subcategorys)
     
 //console.log("Hole data", contacts)
   //  console.log(subcategory.category)
-    setContacts([...contacts, {id: uuid(),  category: subcategory.category,  subcategory: {...subcategory}}]);
+    //setContacts([...contacts, {id: uuid(),  category: subcategory.category,  subcategory: {...subcategory}}]);
+
+    setContacts([...contacts, 
+      {
+        Lists: [{
+          id:uuid(),
+          name:contacts.category,
+          subcategory:{
+            id:uuid(),
+            link:"test12",
+            name:"subcat12"
+          }
+        }]}])
+
+    console.log(contacts)
   }
  
   useEffect(()=>{
