@@ -1,0 +1,42 @@
+{
+  "contacts": [
+    {
+      "id": "12",
+      "name": "cat1"
+    },
+    {
+      "id": "21",
+      "name": "cat12"
+    },
+    {
+      "id": "09cbf3ec-f266-4b54-87a7-f6c55adc47b3",
+      "category": " daf"
+    },
+    {
+      "id": "f83ebd28-b75b-4ee3-b889-442005500bc8",
+      "category": " asd"
+    },
+    {
+      "id": "197dc566-e393-4c47-9ab3-86078496aaf3",
+      "category": " saf"
+    },
+    {
+      "id": "32b42ad3-7b2f-4331-88a2-4205830558de",
+      "category": "cat test",
+      "subcategory": "sda",
+      "link": "sda"
+    },
+    {
+      "id": "6811757d-2d8d-4eb2-a02c-abf08b3fd126",
+      "category": "cat test",
+      "subcategory": "asd",
+      "link": "svad"
+    },
+    {
+      "id": "efe168c2-70aa-4e9d-ac59-034eeca5ec0e",
+      "category": "cat test",
+      "subcategory": "adf",
+      "link": "sf"
+    }
+  ]
+}

@@ -21,12 +21,9 @@ class AddData extends Component {
       alert ("Please enter category");
       return;
     } 
-    //console.log(this.state)
     this.props.addCategoryHandler(this.state);
-    this.setState({category:""});
-    //this.props.history.push("/")
-    console.log(this.props)
-    //alert("helo")
+    this.setState({category:""})
+    this.props.history.push("/")
   }
   
   render() {

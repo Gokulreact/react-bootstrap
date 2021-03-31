@@ -1,15 +1,16 @@
 import React from 'react';
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
-import Button from 'react-bootstrap/Button';
-import {Link} from 'react-router-dom'
+// import Button from 'react-bootstrap/Button';
+// import {Link} from 'react-router-dom'
 
 
 const AccordionShow = (props) =>{
-  console.log(props)
+//  console.log(props)
     const {id, category} = props.contact;
+    
     return(
-      <>
+      <div>
         <Accordion defaultActiveKey="0">
         <Card>
           <Accordion.Toggle as={Card.Header} eventKey={id}>
@@ -22,11 +23,11 @@ const AccordionShow = (props) =>{
           </Accordion.Collapse>
         </Card>
         </Accordion>
-        <Link to="/addCategory">
+       {/* <Link to="/addCategory">
         <Button variant="primary">Add Category</Button>
-        </Link>
+    </Link>*/}
        
-        </>
+        </div>
 
     );
 }

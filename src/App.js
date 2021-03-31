@@ -1,66 +1,66 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { uuid } from "uuidv4";
-import { BrowserRouter as Router, Switch, Route, render } from "react-router-dom";
+import api from "./api/jsonconnect";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Title from "./Pillars/Header/Title";
 import AccordionData from "./Pillars/ShowData/AccordionData";
 import AddData from "./Pillars/CRUD/AddData";
-import AddSubData from "./Pillars/CRUD/AddSubCategory";
+import AddSubData from "./Pillars/CRUD/AddSubData";
+//import AddSubData from "./Pillars/CRUD/AddSubCategory";
 
 function App() {
-  const LOCAL_STORAGE_KEY = "contacts";
+ // const LOCAL_STORAGE_KEY = "contacts";
 
   const [contacts, setContacts] = useState([]);
 
-  const addCategoryHandler = (category) => {
-    console.log(category);
-    setContacts([...contacts, {id: uuid(), ...category}]);
-    /*setContacts([
-      ...contacts,
-      {
-        Lists: [
-          {
-            id: uuid(),
-            name: category.category,
-            subcategory: {
-              id: uuid(),
-              link: "Gokul123",
-              name: "subcat1",
-            },
-          },
-        ],
-      },
-    ]);*/
-
-    /*  setContacts([...contacts, {
-      Lists:[{
-        id:"1",
-       name:"Gkyl1"}]}]);
-  }*/
-    //console.log(...contacts)
-  };
-  const addSubCatHandler = (subcategory) => {
-    // console.log(subcategory);
-
-    //console.log("Hole data", contacts)
-    //  console.log(subcategory.category)
-    setContacts([
-      ...contacts,
-      {
-        id: uuid(),
-        category: subcategory.category,
-        subcategory: { ...subcategory },
-      },
-    ]);
+  const retrieveContacts = async () => {
+    const response = await api.get("/contacts");
+    return response.data;
   };
 
-  useEffect(() => {
+  const addCategoryHandler = async(category) => {
+    const request = {
+      id: uuid(),
+      ...category,
+    };
+
+    const response = await api.post("/contacts", request);
+    setContacts([...contacts, response.data]);
+  };
+
+  const addSubCategoryHandler = async(category) => {
+    const request = {
+      id: uuid(),
+      ...category,
+    };
+    console.log(request)
+    const response = await api.post("/contacts/", request);
+    setContacts([...contacts, response.data]);
+  };
+
+  
+
+  /*useEffect(() => {
     const getData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (getData) setContacts(getData);
   }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+  }, [contacts]);
+  */
+  useEffect(() => {
+    const getAllCOntacts = async () => {
+      const allContacts = await retrieveContacts();
+      if (allContacts) setContacts(allContacts);
+    };
+
+    getAllCOntacts();
+  }, []);
+
+  useEffect(() => {
+    //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
   return (
@@ -73,32 +73,36 @@ function App() {
         <Route
         path="/"
         exact
-    //component={() =>  <AccordionData contacts={contacts} />}
-        render = {(props) => {
-         // console.log(props)
-          <AccordionData 
+        render = {(props) => 
+          (
+        <AccordionData 
           {...props}
           contacts={contacts} />
-        }}
+          )}
         />
 
         <Route
          path="/AddCategory"
          
-        component={() => <AddData addCategoryHandler={addCategoryHandler} />
-        }/>
-        { /*  <Route
-         path="/addCategory" 
-         component={
-          ()=>{
-            <AddData addCategoryHandler={addCategoryHandler} />
-          }
-        }/>
-     <AccordionData contacts={contacts} />
+         render={(props) => (
+         
+          <AddData 
+          {...props}
+          addCategoryHandler={addCategoryHandler} />
+        )}
+        />
 
-        <AddData addCategoryHandler={addCategoryHandler} />
-        <AddSubData addSubCatHandler={addSubCatHandler} />
-  */}
+        <Route
+         path="/AddSubCategory"
+         
+         render={(props) => (
+         
+          <AddSubData 
+          {...props}
+          addSubCat={addSubCategoryHandler} />
+        )}
+        />
+
       </Switch>
       </Router>
     </div>
