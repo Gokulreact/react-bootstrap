@@ -24,6 +24,8 @@ class AddData extends Component {
     //console.log(this.state)
     this.props.addCategoryHandler(this.state);
     this.setState({category:""});
+    //this.props.history.push("/")
+    console.log(this.props)
     //alert("helo")
   }
   
@@ -41,9 +43,9 @@ class AddData extends Component {
               <Form.Control type="text" 
                placeholder="Enter category Name"
                value ={this.state.category}
-               onChange ={(e) =>{ 
+               onChange ={(e) => 
                  this.setState({category: e.target.value})
-                }} />
+                } />
             </Col>
           </Form.Group>
           <Button variant="primary" type="submit" >
