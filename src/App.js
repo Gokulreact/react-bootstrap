@@ -16,7 +16,9 @@ function App() {
 
   const retrieveContacts = async () => {
     const response = await api.get("/contacts");
+    //console.log(response)
     return response.data;
+    
   };
 
   const addCategoryHandler = async(category) => {
@@ -29,13 +31,21 @@ function App() {
     setContacts([...contacts, response.data]);
   };
 
-  const addSubCategoryHandler = async(category) => {
+  const addSubCategoryHandler = async(subCategory) => {
+    //let needCat = "gokul";
     const request = {
       id: uuid(),
-      ...category,
+      category:subCategory.category,
+      subcat:{
+        ...subCategory
+      }
     };
     console.log(request)
+    //console.log(request)
     const response = await api.post("/contacts/", request);
+    console.log("await tesponse", response)
+    //const data = {subcat:[]}
+    console.log(contacts)
     setContacts([...contacts, response.data]);
   };
 
@@ -51,12 +61,13 @@ function App() {
   }, [contacts]);
   */
   useEffect(() => {
-    const getAllCOntacts = async () => {
+    const getAllContacts = async () => {
       const allContacts = await retrieveContacts();
       if (allContacts) setContacts(allContacts);
+      //console.log(allContacts)
     };
 
-    getAllCOntacts();
+    getAllContacts();
   }, []);
 
   useEffect(() => {
@@ -96,10 +107,11 @@ function App() {
          path="/AddSubCategory"
          
          render={(props) => (
-         
+          
           <AddSubData 
           {...props}
           addSubCat={addSubCategoryHandler} />
+          
         )}
         />
 

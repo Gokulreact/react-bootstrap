@@ -24,8 +24,9 @@ class AddSubCat extends Component {
          alert ("Please enter Fileds");
          return;
        } 
-       //console.log(this.state)
+      // console.log("have sub data");
        this.props.addSubCatHandler(this.state);
+       //console.log(this.state)
        this.setState({subcategory:"", link:""});
        //alert("helo")
      }

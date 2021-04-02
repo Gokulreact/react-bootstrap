@@ -6,13 +6,19 @@ import Col from "react-bootstrap/Col";
 import Container from 'react-bootstrap/Container';
 
 class AddSubData extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    console.log(typeof(props.categoryName))
+    console.log(props)
+    console.log(props.location.aboutProps.name)
+   
+    var catName = props.location.aboutProps.name.category;
+    super(props);
      this.state = {
-      category: "cat test",
+      category: {catName},
       subcategory:"",
       link:""
     };
+    console.log(this.state.category.catName)
 
   }
   
@@ -25,7 +31,7 @@ class AddSubData extends Component {
     } 
     this.props.addSubCat(this.state);
     this.setState({subcategory:"", link:""})
-    this.props.history.push("/")
+    //this.props.history.push("/")
   }
   
   render() {
