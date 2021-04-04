@@ -31,6 +31,7 @@ function App() {
     setContacts([...contacts, response.data]);
   };
 
+  /*
   const addSubCategoryHandler = async(subCategory) => {
     //let needCat = "gokul";
     const request = {
@@ -47,6 +48,23 @@ function App() {
     //const data = {subcat:[]}
     console.log(contacts)
     setContacts([...contacts, response.data]);
+  };
+  */
+  const addSubCategoryHandler = async (contact) => {
+    console.log(contact);
+    const request = {
+      id: uuid(),
+      ...contact,
+    };
+
+    const response = await api.patch("/contacts/878ed38e-561f-4eed-9837-82686f381048/", request);
+    console.log(response);
+    //setContacts([...contacts, response.data]);
+
+    
+
+    
+   console.log(response)
   };
 
   
