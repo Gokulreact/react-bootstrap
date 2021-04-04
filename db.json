@@ -2,7 +2,36 @@
   "contacts": [
     {
       "id": "878ed38e-561f-4eed-9837-82686f381048",
-      "category": " Cat1"
+      "category": "Cat1",
+      "subcat": [
+        {
+          "category": "Cat1"
+        }
+      ],
+      "subcategory": "d",
+      "link": "s"
+    },
+    {
+      "id": "878ed38e-561f-4eed-9837-82686f381048",
+      "category": "Cat1",
+      "subcat": {
+        "category": "Cat1",
+        "subcategory": "gffg",
+        "link": "gf"
+      }
+    },
+    {
+      "id": "79bcc126-4d14-48e0-aaef-e1abd3b06be9",
+      "category": "cat2"
+    },
+    {
+      "id": "5ffdb8d9-5b03-46b9-b28a-69e0a9c8f62d",
+      "category": "cat2",
+      "subcat": {
+        "category": "cat2",
+        "subcategory": "sub2",
+        "link": "link2"
+      }
     }
   ]
 }

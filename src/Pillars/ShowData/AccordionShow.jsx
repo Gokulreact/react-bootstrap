@@ -6,9 +6,9 @@ import {Link} from 'react-router-dom'
 
 
 const AccordionShow = (props) =>{
-   // console.log(props);
-   const {id, category, link, subcategory} = props.contact;
-  //  console.log({category})
+    console.log(props);
+   const {id, category, link, subcat} = props.contact;
+   console.log({subcat})
     
     return(
       <div>  
@@ -19,12 +19,15 @@ const AccordionShow = (props) =>{
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={id}>
             <Card.Body >
+           
+           
             <a href="header"  key={id}>Subcategory Name: {category}</a>
 
             <Link to={{
               pathname: "/addsubcategory",
               aboutProps:{
-                name:{category}
+                id:{id},
+                name:{category},
               }
             }} 
             >

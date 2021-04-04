@@ -7,18 +7,21 @@ import Container from 'react-bootstrap/Container';
 
 class AddSubData extends Component {
   constructor(props){
-    console.log(typeof(props.categoryName))
+   // console.log(typeof(props.categoryName))
     console.log(props)
-    console.log(props.location.aboutProps.name)
+   // console.log(props.location.aboutProps.name)
    
     var catName = props.location.aboutProps.name.category;
+    var catId = props.location.aboutProps.id.id;
+    console.log(props.location.aboutProps.name)
     super(props);
      this.state = {
-      category: {catName},
+      id:catId,
+      category: catName,
       subcategory:"",
       link:""
     };
-    console.log(this.state.category.catName)
+    console.log(this.state.id)
 
   }
   
