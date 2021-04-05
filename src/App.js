@@ -31,25 +31,53 @@ function App() {
     setContacts([...contacts, response.data]);
   };
 
-  /*
+  
   const addSubCategoryHandler = async(subCategory) => {
     //let needCat = "gokul";
-    const request = {
-      id: uuid(),
-      category:subCategory.category,
-      subcat:{
-        ...subCategory
+    const response = await api.get("/contacts");
+    console.log("Sub", subCategory)
+    console.log(response.data)
+    
+      
+    response.data.map((x) => {
+      //const data = {user: []}
+      console.log(x)
+      if( x.id === subCategory.id){
+        console.log("I am in")
+        const request = {
+          subid: uuid(),
+          ...subCategory
+        } 
+
+        const options = {
+
+          headers: {'X-Custom-Header': 'value'}
+        };
+
+        api.post('/contacts/', { a: 10 }, options);
+
+        console.log(contacts)
+        
+        api.post(`/contacts/${x.id}`).then(res => {
+          res.data.subdata.push("gokul")
+        }).catch(err => {
+          console.log(err)
+        })
+         
+        
+       
+
       }
-    };
-    console.log(request)
-    //console.log(request)
-    const response = await api.post("/contacts/", request);
-    console.log("await tesponse", response)
-    //const data = {subcat:[]}
-    console.log(contacts)
-    setContacts([...contacts, response.data]);
+      console.log(contacts)
+    })
+    return response.data;
+    
+    
+  
+    
   };
-  */
+
+  /*
   const addSubCategoryHandler = async (contact) => {
     console.log(contact);
     const request = {
@@ -65,7 +93,7 @@ function App() {
 
     
    console.log(response)
-  };
+  };*/
 
   
 

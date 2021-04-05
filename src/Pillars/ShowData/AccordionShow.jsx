@@ -6,9 +6,9 @@ import {Link} from 'react-router-dom'
 
 
 const AccordionShow = (props) =>{
-    console.log(props);
+   // console.log(props);
    const {id, category, link, subcat} = props.contact;
-   console.log({subcat})
+   //console.log({subcat})
     
     return(
       <div>  
@@ -31,7 +31,7 @@ const AccordionShow = (props) =>{
               }
             }} 
             >
-            <Button variant="primary" categoryName={props.category}>Add Sub Category</Button>
+            <Button variant="primary" categoryname={props.category}>Add Sub Category</Button>
              </Link>
             </Card.Body>
             

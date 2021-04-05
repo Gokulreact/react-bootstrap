@@ -9,7 +9,7 @@ class AddData extends Component {
   constructor(){
     super();
      this.state = {
-      category: " ",
+      category: "",
     };
 
   }
