@@ -16,7 +16,7 @@ class AddSubData extends Component {
     //console.log(props.location.aboutProps.name)
     super(props);
      this.state = {
-      id:catId,
+      catid:catId,
       category: catName,
       subcategory:"",
       link:""

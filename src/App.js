@@ -7,6 +7,7 @@ import Title from "./Pillars/Header/Title";
 import AccordionData from "./Pillars/ShowData/AccordionData";
 import AddData from "./Pillars/CRUD/AddData";
 import AddSubData from "./Pillars/CRUD/AddSubData";
+import axios from "axios";
 //import AddSubData from "./Pillars/CRUD/AddSubCategory";
 
 function App() {
@@ -27,55 +28,25 @@ function App() {
       ...category,
     };
 
-    const response = await api.post("/contacts", request);
+    const response = await api.post("/contacts/", request);
     setContacts([...contacts, response.data]);
   };
 
   
-  const addSubCategoryHandler = async(subCategory) => {
+  const addSubCategoryHandler = async (subCategory) => {
     //let needCat = "gokul";
-    const response = await api.get("/contacts");
-    console.log("Sub", subCategory)
-    console.log(response.data)
-    
+    console.log(subCategory);
+    const request = {
       
-    response.data.map((x) => {
-      //const data = {user: []}
-      console.log(x)
-      if( x.id === subCategory.id){
-        console.log("I am in")
-        const request = {
-          subid: uuid(),
-          ...subCategory
-        } 
-
-        const options = {
-
-          headers: {'X-Custom-Header': 'value'}
-        };
-
-        api.post('/contacts/', { a: 10 }, options);
-
-        console.log(contacts)
-        
-        api.post(`/contacts/${x.id}`).then(res => {
-          res.data.subdata.push("gokul")
-        }).catch(err => {
-          console.log(err)
-        })
-         
-        
-       
-
-      }
-      console.log(contacts)
-    })
-    return response.data;
+        id: uuid(),
+        ...subCategory,
+      
+      };
+    const catData = await api.post("/subdatas/", request);
+    console.log(catData.data)
     
     
-  
-    
-  };
+  }
 
   /*
   const addSubCategoryHandler = async (contact) => {
