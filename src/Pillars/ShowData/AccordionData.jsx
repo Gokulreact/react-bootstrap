@@ -6,19 +6,33 @@ import api from "../../api/jsonconnect";
 // import Accordion from "react-bootstrap/Accordion";
 // import Card from "react-bootstrap/Card";
 const AccordionData = (props) => {
- //console.log("Have Data", props)
- const  subDatas = (() =>
-  api.get("/subdatas/").then((respons) => {
-    return respons.data;
-  }))
-  
-  
- 
-subDatas()
+ console.log("Have Data", props)
 
-
+/*
+const myData = function(data) {
+  data.map((x) => {
+    console.log(x.id)
+  })
   
+}
+
+ api.get('/subdatas/')
+.then(response => {
+  const data = response.data;
+  console.log(data)
+  return data
+  
+})
+.then(myData)
+.catch(err => {
+  console.log('Error: ', err);
+})
+  */
   const renderPropsData = props.contacts.map((contact) => {
+
+    //console.log(contact)
+    
+    
     return (
       <div>
       <AccordionShow contact={contact} />
@@ -44,7 +58,7 @@ subDatas()
   
  
   return <div>{renderPropsData}
-  <h1>{subDatas}</h1>
+  
   <Link to="/addCategory">
         <Button variant="primary">Add Category</Button>
         </Link></div>;

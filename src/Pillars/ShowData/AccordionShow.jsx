@@ -4,20 +4,21 @@ import Card from "react-bootstrap/Card";
 import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 import api from "../../api/jsonconnect";
+import SubCatDatas from "./SubcatData"
+
+
+
 
 
 const AccordionShow = (props) =>{
-    console.log(props);
+    
     const {id, category, link, subcat} = props.contact;
    //console.log({subcat})
-    var subDatas = api.get("/subdatas/").then((respons) => {
-      console.log(respons)
-    })
-  
-      
-     
-     
    
+   console.log(props);
+
+   
+  
 
  
     
@@ -33,10 +34,10 @@ const AccordionShow = (props) =>{
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={id}>
             <Card.Body >
-           
+            
            
             <a href="header"  key={id}>Subcategory Name: {category} </a>
-
+            <SubCatDatas catName = {category}/>
             <Link to={{
               pathname: "/addsubcategory",
               aboutProps:{
@@ -45,6 +46,7 @@ const AccordionShow = (props) =>{
               }
             }} 
             >
+            
             <Button variant="primary" categoryname={props.category}>Add Sub Category</Button>
              </Link>
             </Card.Body>
@@ -63,6 +65,7 @@ const AccordionShow = (props) =>{
         
 
     );
+    
 }
 
 export default AccordionShow
