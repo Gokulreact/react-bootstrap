@@ -34,7 +34,7 @@ class AddSubData extends Component {
     } 
     this.props.addSubCat(this.state);
     this.setState({subcategory:"", link:""})
-    //this.props.history.push("/")
+    this.props.history.push("/")
   }
   
   render() {

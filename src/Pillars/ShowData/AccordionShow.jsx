@@ -36,7 +36,7 @@ const AccordionShow = (props) =>{
             <Card.Body >
             
            
-            <a href="header"  key={id}>Subcategory Name: {category} </a>
+           
             <SubCatDatas catName = {category}/>
             <Link to={{
               pathname: "/addsubcategory",

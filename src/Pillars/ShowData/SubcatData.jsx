@@ -1,63 +1,48 @@
-import React,{Component} from 'react';
+import React, { Component } from "react";
 //import api from "../../api/jsonconnect";
+import Cards from "./Card/CardComponent";
 
-class SubCatDatas extends Component{
+class SubCatDatas extends Component {
   constructor(props) {
-      super(props);
-      this.state = { 
-        data: [],
-        categoryName: props.catName };
+    super(props);
+    this.state = {
+      data: [],
+      categoryName: props.catName,
+    };
   }
-  
-
 
   componentDidMount() {
-      fetch(`http://localhost:3004/subdatas`)
-      .then(res => res.json())
-      .then(json => this.setState({data: json}));
-       //console.log(this.state.data)
-      
+    fetch(`http://localhost:3004/subdatas`)
+      .then((res) => res.json())
+      .then((json) => this.setState({ data: json }));
+    //console.log(this.state.data)
   }
 
+  render() {
+    return (
+      <div>
+      
 
-  render(){
-      return(
-          <div>
-          <h1>Subddatas</h1>
-         
-         
-          {this.state.data.map(el => {
-              console.log(el);
-             
-                 
-                  
-                  if((el.category) === (this.state.categoryName)){
-                      return(
-                        <h1>{el.link}</h1>
-                      )
-                      
+        <div className="card-list">
+          {this.state.data.map((el) => {
+            console.log(el);
 
-                  }
-                  
-             
-
-          }
-          )}
-         
-         
-          </div>
-      )
+            if (el.category === this.state.categoryName) {
+              return (
+                <a key={el.id} href={el.link}>
+                  <Cards
+                    key={el.id}
+                    linksDatas={el.subcategory}
+                    hreflinks={el.link}
+                  ></Cards>
+                </a>
+              );
+            }
+          })}
+        </div>
+      </div>
+    );
   }
 }
-    
-    
 
-
-    
-
-
-    
-       
-    
-
-export default SubCatDatas
+export default SubCatDatas;
