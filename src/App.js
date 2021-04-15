@@ -8,6 +8,7 @@ import AccordionData from "./Pillars/ShowData/AccordionData";
 import AddData from "./Pillars/CRUD/AddData";
 import AddSubData from "./Pillars/CRUD/AddSubData";
 import axios from "axios";
+import EditSubcategory from "./Pillars/CRUD/EditSubcategory"
 
 //import AddSubData from "./Pillars/CRUD/AddSubCategory";
 
@@ -15,9 +16,19 @@ function App() {
  // const LOCAL_STORAGE_KEY = "contacts";
 
   const [contacts, setContacts] = useState([]);
+  const [subdatas, setSubdatas] = useState([]);
+  console.log(subdatas)
+
 
   const retrieveContacts = async () => {
     const response = await api.get("/contacts");
+    //console.log(response)
+    return response.data;
+    
+  };
+
+  const retrieveSubContacts = async () => {
+    const response = await api.get("/subdatas");
     //console.log(response)
     return response.data;
     
@@ -45,39 +56,25 @@ function App() {
       };
     const catData = await api.post("/subdatas/", request);
     console.log(catData.data)
+    setSubdatas([...subdatas, catData.data]);
     
     
   }
 
-  /*
-  const addSubCategoryHandler = async (contact) => {
-    console.log(contact);
-    const request = {
-      id: uuid(),
-      ...contact,
-    };
-
-    const response = await api.patch("/contacts/878ed38e-561f-4eed-9837-82686f381048/", request);
-    console.log(response);
-    //setContacts([...contacts, response.data]);
-
+  const updateSubHandler = async (contact) => {
+    console.log("I am update handler", contact)
+    const response = await api.put(`/subdatas/${contact.id}`, contact);
+    const { id  } = response.data;
+    setSubdatas(
+      contacts.map((conatct) => {
+        return contact.id === id ? { ...response.data } : contact;
+      })
+    )
     
-
-    
-   console.log(response)
-  };*/
+  };
 
   
 
-  /*useEffect(() => {
-    const getData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (getData) setContacts(getData);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }, [contacts]);
-  */
   useEffect(() => {
     const getAllContacts = async () => {
       const allContacts = await retrieveContacts();
@@ -89,8 +86,22 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const getAllSubContacts = async () => {
+      const allSubdatas = await retrieveSubContacts();
+      if (allSubdatas) setSubdatas(allSubdatas);
+      //console.log(allContacts)
+    };
+
+    getAllSubContacts();
+  }, []);
+
+  useEffect(() => {
     //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
+
+  useEffect(() => {
+    //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+  }, [subdatas]);
 
   return (
     <div className="App">
@@ -132,6 +143,16 @@ function App() {
           
         )}
         />
+
+        <Route
+            path="/edit"
+            render={(props) => (
+              <EditSubcategory
+                {...props}
+                updateSubHandler={updateSubHandler}
+              />
+            )}
+          />
 
       </Switch>
       </Router>

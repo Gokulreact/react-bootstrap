@@ -59,8 +59,7 @@ const AccordionShow = (props) =>{
        {/* <Link to="/addCategory">
         <Button variant="primary">Add Category</Button>
     </Link>*/}
-     
-       
+ 
         </div>
         
 

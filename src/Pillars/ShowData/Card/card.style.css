@@ -25,7 +25,7 @@
     justify-content: space-around;
   }
 
-  .card-list a {
+  .card-list .links  {
     width:25%;
     display: block;
     /*height:100px;
@@ -38,12 +38,19 @@
     font-size: 22px;
   }
 
-  .card-list a:hover {
+  .card-list .links:hover {
     transform: scale(1.05);
     text-decoration: none;
     font-weight: 600;
     font-size: 22px;
   } 
+  
+  .card-list .links a:hover {
+   
+    text-decoration: none;
+    
+  } 
+
 
   .card-body {
     flex: 1 1 auto;

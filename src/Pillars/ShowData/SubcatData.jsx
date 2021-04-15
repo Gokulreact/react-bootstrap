@@ -21,21 +21,24 @@ class SubCatDatas extends Component {
   render() {
     return (
       <div>
-      
-
         <div className="card-list">
           {this.state.data.map((el) => {
             console.log(el);
 
             if (el.category === this.state.categoryName) {
               return (
-                <a key={el.id} href={el.link}>
+                <div className="links">
+                <a  key={el.id} href={el.link}>
                   <Cards
                     key={el.id}
-                    linksDatas={el.subcategory}
-                    hreflinks={el.link}
+                    // subname={el.subcategory}
+                    // link={el.link}
+                    // subid={el.id}
+                    total={el}
+                   
                   ></Cards>
                 </a>
+                </div>
               );
             }
           })}
