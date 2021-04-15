@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 
 const Cards = (props)  => {
-  console.log(props)
+  //console.log(props)
  
 
   return(

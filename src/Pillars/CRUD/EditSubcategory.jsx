@@ -16,7 +16,7 @@ class EditSubcategory extends React.Component{
           link,
           category,
           catid
-      }
+      };
    }
    update = (e) => {
     e.preventDefault();
@@ -24,9 +24,12 @@ class EditSubcategory extends React.Component{
       alert("ALl the fields are mandatory!");
       return;
     }
-    this.props.updateSubHandler(this.state);
-    this.setState({ subcategory: "", link: "", category:"", catid :"" });
-     this.props.history.push("/");
+    else{
+        this.props.updateSubHandler(this.state);
+        this.setState({ subcategory: "", link: "", category:"", catid :"" });
+         this.props.history.push("/");
+    }
+    
   };
 
    render() {

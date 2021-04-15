@@ -14,6 +14,7 @@ import EditSubcategory from "./Pillars/CRUD/EditSubcategory"
 
 function App() {
  // const LOCAL_STORAGE_KEY = "contacts";
+ 
 
   const [contacts, setContacts] = useState([]);
   const [subdatas, setSubdatas] = useState([]);
@@ -55,7 +56,7 @@ function App() {
       
       };
     const catData = await api.post("/subdatas/", request);
-    console.log(catData.data)
+    //console.log(subdatas)
     setSubdatas([...subdatas, catData.data]);
     
     
@@ -64,9 +65,10 @@ function App() {
   const updateSubHandler = async (contact) => {
     console.log("I am update handler", contact)
     const response = await api.put(`/subdatas/${contact.id}`, contact);
-    const { id  } = response.data;
+    const { id } = response.data;
     setSubdatas(
-      contacts.map((conatct) => {
+      subdatas.map((contact) => {
+        console.log(" i am inside subhandler", contact)
         return contact.id === id ? { ...response.data } : contact;
       })
     )
@@ -89,18 +91,19 @@ function App() {
     const getAllSubContacts = async () => {
       const allSubdatas = await retrieveSubContacts();
       if (allSubdatas) setSubdatas(allSubdatas);
-      //console.log(allContacts)
+      console.log(allSubdatas)
     };
-
     getAllSubContacts();
   }, []);
 
+  console.log(subdatas)
   useEffect(() => {
     //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
   useEffect(() => {
     //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+    console.log("i am exwecuted")
   }, [subdatas]);
 
   return (
