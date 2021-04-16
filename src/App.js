@@ -48,7 +48,7 @@ function App() {
   
   const addSubCategoryHandler = async (subCategory) => {
     //let needCat = "gokul";
-    console.log(subCategory);
+    //console.log(subCategory);
     const request = {
       
         id: uuid(),
@@ -75,6 +75,15 @@ function App() {
     
   };
 
+  const removeContactHandler = async (id) => {
+    await api.delete(`/subdatas/${id}`);
+    const newSubDataList = subdatas.filter((contact) => {
+      return contact.id !== id;
+    });
+
+    setSubdatas(newSubDataList);
+  };
+
   
 
   useEffect(() => {
@@ -91,12 +100,12 @@ function App() {
     const getAllSubContacts = async () => {
       const allSubdatas = await retrieveSubContacts();
       if (allSubdatas) setSubdatas(allSubdatas);
-      console.log(allSubdatas)
+      //console.log(allSubdatas)
     };
     getAllSubContacts();
   }, []);
 
-  console.log(subdatas)
+  //console.log(subdatas)
   useEffect(() => {
     //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
@@ -105,6 +114,8 @@ function App() {
     //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
     console.log("i am exwecuted")
   }, [subdatas]);
+
+  console.log(subdatas)
 
   return (
     <div className="App">
@@ -120,7 +131,10 @@ function App() {
           (
         <AccordionData 
           {...props}
-          contacts={contacts} />
+          contacts={contacts} 
+          getContactId={removeContactHandler}
+          />
+          
           )}
         />
 

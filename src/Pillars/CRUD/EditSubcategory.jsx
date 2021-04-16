@@ -27,7 +27,7 @@ class EditSubcategory extends React.Component{
     else{
         this.props.updateSubHandler(this.state);
         this.setState({ subcategory: "", link: "", category:"", catid :"" });
-         this.props.history.push("/");
+        this.props.history.push("/");
     }
     
   };

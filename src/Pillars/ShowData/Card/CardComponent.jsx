@@ -20,7 +20,12 @@ const Cards = (props)  => {
    
     <Container fluid>
   <Row>
-    <Col sm={9}>{props.total.subcategory}</Col>
+    <Col sm={9}>
+    <a  key={props.total.id} target="_blank" href={props.total.link} >
+    <h4>{props.total.subcategory}</h4>
+    </a>
+    
+    </Col>
     <Col sm={3}>
       <Row>
       <Col sm={6}>
@@ -34,7 +39,7 @@ const Cards = (props)  => {
       </Link>
       </Col>
         
-         <Col sm={6}><MdDelete /></Col>
+         <Col sm={6}><MdDelete  onClick={() => props.clickHander(props.total.id)}/></Col>
        </Row>
     </Col>
 
