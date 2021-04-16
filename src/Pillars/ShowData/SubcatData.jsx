@@ -33,8 +33,8 @@ class SubCatDatas extends Component {
          console.log(res);  
          console.log(res.data);  
      
-        //  const data = this.state.data.filter(item => item.id !== id);  
-        //  this.setState({ data });  
+         const data = this.state.data.filter(item => item.id !== id);  
+         this.setState({ data });  
        })  
      
    } 
