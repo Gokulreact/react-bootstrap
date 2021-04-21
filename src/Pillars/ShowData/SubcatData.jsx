@@ -2,6 +2,8 @@ import React, { Component } from "react";
 //import api from "../../api/jsonconnect";
 import Cards from "./Card/CardComponent";
 import api from "../../api/jsonconnect";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 
 class SubCatDatas extends Component {
@@ -18,7 +20,7 @@ class SubCatDatas extends Component {
       fetch(`http://localhost:3004/subdatas`)
       .then((res) => res.json())
       .then((json) => this.setState({ data: json }));
-    }, 1000)
+    }, 500)
   }
   
   componentDidMount() {
@@ -27,15 +29,34 @@ class SubCatDatas extends Component {
 
   
    deleteConactHandler = (id, e) =>{  
-    console.log(id)
-     api.delete(`http://localhost:3004/subdatas/${id}`)  
-       .then(res => {  
-         console.log(res);  
-         console.log(res.data);  
      
-         const data = this.state.data.filter(item => item.id !== id);  
-         this.setState({ data });  
-       })  
+      confirmAlert({
+
+        title: 'Confirm to submit',
+        message: 'Are you sure to do this.',
+        buttons: [
+          {
+            label: 'Yes',
+            onClick: () => {
+              api.delete(`http://localhost:3004/subdatas/${id}`)  
+              .then(res => {  
+                console.log(res);  
+                console.log(res.data);  
+            
+                const data = this.state.data.filter(item => item.id !== id);  
+                this.setState({ data });  
+              })
+            }
+          },
+          {
+            label: 'No',
+            //onClick: () => alert('Click No')
+          }
+        ]
+      });
+    
+      
+    
      
    } 
   
