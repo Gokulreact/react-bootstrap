@@ -3,6 +3,9 @@ import AccordionShow from "./AccordionShow";
 import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 import api from "../../api/jsonconnect";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 // import Accordion from "react-bootstrap/Accordion";
 // import Card from "react-bootstrap/Card";
 const AccordionData = (props) => {
@@ -34,7 +37,7 @@ const myData = function(data) {
     
     
     return (
-      <div>
+      <div >
       <AccordionShow contact={contact} />
       
       {/*
@@ -57,11 +60,26 @@ const myData = function(data) {
   });
   
  
-  return <div>{renderPropsData}
+  return <div className="AccordionBox">
+  <Container fluid>
+  <Row>
+    <Col  md={{ offset: 9 }} lg={{ offset: 10 }} xs={{ offset: 6 }}> <Link to="/addCategory">
+    <Button variant="primary">Add Category</Button>
+    </Link>
+   </Col>
+    
+  </Row>
+  <Row>
   
-  <Link to="/addCategory">
-        <Button variant="primary">Add Category</Button>
-        </Link></div>;
+    <Col >
+    <div className="Acc">
+     {renderPropsData}
+     </div></Col>
+  </Row>
+</Container>
+ 
+  
+  </div>;
 };
 
 export default AccordionData;

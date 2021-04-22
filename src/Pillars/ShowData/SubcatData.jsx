@@ -32,17 +32,14 @@ class SubCatDatas extends Component {
      
       confirmAlert({
 
-        title: 'Confirm to submit',
+        title: 'Confirm to Delete',
         message: 'Are you sure to do this.',
         buttons: [
           {
             label: 'Yes',
             onClick: () => {
               api.delete(`http://localhost:3004/subdatas/${id}`)  
-              .then(res => {  
-                console.log(res);  
-                console.log(res.data);  
-            
+              .then(res => {   
                 const data = this.state.data.filter(item => item.id !== id);  
                 this.setState({ data });  
               })
