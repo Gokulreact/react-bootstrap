@@ -40,11 +40,11 @@ class EditSubcategory extends React.Component{
          <Form onSubmit={this.update}>
             <Form.Group controlId="formSubCategoryName" as={Row} >
               <Form.Label column sm="3">
-                Sub Category Name
+              Application Name
               </Form.Label>
               <Col sm="7">
                 <Form.Control type="text" 
-                 placeholder="Enter Sub category Name"
+                 placeholder="Enter Application Name"
                  value ={this.state.subcategory}
                  onChange ={(e) => 
                    this.setState({subcategory: e.target.value})
@@ -53,11 +53,11 @@ class EditSubcategory extends React.Component{
             </Form.Group>
             <Form.Group controlId="Link" as={Row} >
               <Form.Label column sm="3">
-                Link URL
+                 URL
               </Form.Label>
               <Col sm="7">
                 <Form.Control type="text" 
-                 placeholder="Enter Link URL"
+                 placeholder="Enter  URL"
                  value ={this.state.link}
                  onChange ={(e) => 
                    this.setState({link: e.target.value})

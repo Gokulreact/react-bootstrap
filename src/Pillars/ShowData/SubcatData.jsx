@@ -11,7 +11,7 @@ class SubCatDatas extends Component {
     super(props);
     this.state = {
       data: [],
-      categoryName: props.catName,
+      categoryName: props.catId,
     };
   }
 
@@ -20,7 +20,7 @@ class SubCatDatas extends Component {
       fetch(`http://localhost:3004/subdatas`)
       .then((res) => res.json())
       .then((json) => this.setState({ data: json }));
-    }, 500)
+    }, 1000)
   }
   
   componentDidMount() {
@@ -63,9 +63,9 @@ class SubCatDatas extends Component {
       <div>
         <div className="card-list">
           {this.state.data.map((el) => {
-           // console.log(el);
+           console.log(el);
 
-            if (el.category === this.state.categoryName) {
+            if (el.catid === this.state.categoryName) {
               return (
                 <div className="links">
                {/* <a  key={el.id} target="_blank" href={el.link} > */}

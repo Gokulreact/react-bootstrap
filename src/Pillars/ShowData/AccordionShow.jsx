@@ -34,9 +34,19 @@ const AccordionShow = (props) => {
                 <Col   lg="2" xs="3">
                   <Row>
                     <Col sm lg="3" xs="6">
-                      <h6>
-                        <BiEdit />
-                      </h6>
+                    <Link 
+      to={{ pathname: `/editCategory`, state: {
+        Catdetails : props.contact
+      } }}>
+     
+       
+      <h6>
+
+      <BiEdit />
+    </h6>
+      </Link>  
+                    
+                    
                     </Col>
                     <Col sm lg="3" xs="6">
                       <h6>
@@ -51,7 +61,7 @@ const AccordionShow = (props) => {
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={id}>
             <Card.Body>
-              <SubCatDatas catName={category} />
+              <SubCatDatas catId={id} />
               <Link
                 to={{
                   pathname: "/addsubcategory",

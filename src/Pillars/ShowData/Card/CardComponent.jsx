@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 
 const Cards = (props)  => {
-  //console.log(props)
+  console.log(props)
  
 
   return(
@@ -30,7 +30,7 @@ const Cards = (props)  => {
       <Row>
       <Col sm={6}>
       <Link 
-      to={{ pathname: `/edit`, state: {
+      to={{ pathname: `/editApplication`, state: {
         subdatas : props.total
       } }}>
      

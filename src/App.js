@@ -7,8 +7,9 @@ import Title from "./Pillars/Header/Title";
 import AccordionData from "./Pillars/ShowData/AccordionData";
 import AddData from "./Pillars/CRUD/AddData";
 import AddSubData from "./Pillars/CRUD/AddSubData";
-import axios from "axios";
-import EditSubcategory from "./Pillars/CRUD/EditSubcategory"
+//import axios from "axios";
+import EditSubcategory from "./Pillars/CRUD/EditSubcategory";
+import EditCategory from "./Pillars/CRUD/EditCategory";
 
 //import AddSubData from "./Pillars/CRUD/AddSubCategory";
 
@@ -72,6 +73,21 @@ function App() {
         return contact.id === id ? { ...response.data } : contact;
       })
     )
+    
+  };
+
+  const updateCatsHandler = async (contact) => {
+    //console.log("I am Cat update handler", contact)
+     const response = await api.put(`/contacts/${contact.id}`, contact);
+     
+     const { id } = response.data;
+     console.log(response.data, contact)
+     setContacts(
+      contacts.map((contact) => {
+         console.log(" i am inside subhandler", contact)
+         return contact.id === id ? { ...response.data } : contact;
+       })
+     )
     
   };
 
@@ -162,7 +178,17 @@ function App() {
         />
 
         <Route
-            path="/edit"
+        path="/editCategory"
+        render={(props) => (
+          <EditCategory
+            {...props}
+            updateCatHandler={updateCatsHandler}
+          />
+        )}
+      />
+
+        <Route
+            path="/editApplication"
             render={(props) => (
               <EditSubcategory
                 {...props}

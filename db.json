@@ -1,12 +1,12 @@
 {
   "contacts": [
     {
-      "id": "30f4cf39-f3ec-4285-a19f-46c51f669310",
-      "category": "cat1"
+      "category": "cat1.2.1.1",
+      "id": "30f4cf39-f3ec-4285-a19f-46c51f669310"
     },
     {
-      "id": "5d9ed011-71e0-4e1f-a1df-dcfd9270fa0b",
-      "category": "cat2"
+      "category": "cat2.1",
+      "id": "5d9ed011-71e0-4e1f-a1df-dcfd9270fa0b"
     },
     {
       "id": "244ce220-e00a-46d9-8e9b-80ebeb4dcdfa",
@@ -68,7 +68,7 @@
     {
       "id": "a906fc35-003a-4e4c-8d57-77590cde3b84",
       "catid": "30f4cf39-f3ec-4285-a19f-46c51f669310",
-      "category": "cat1",
+      "category": "cat1.1",
       "subcategory": "sub1.1",
       "link": "link1.1"
     }
