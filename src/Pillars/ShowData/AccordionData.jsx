@@ -31,14 +31,22 @@ const myData = function(data) {
   console.log('Error: ', err);
 })
   */
+
+
+
   const renderPropsData = props.contacts.map((contact) => {
 
     //console.log(contact)
-    
+    let deleteCatHandler =(id) =>{
+      console.log("I am cat hab=ndler", id)
+    }
     
     return (
       <div >
-      <AccordionShow contact={contact} />
+      <AccordionShow 
+      contact={contact} 
+      clickHander={deleteCatHandler}
+      />
       
       {/*
       <Accordion defaultActiveKey="0">

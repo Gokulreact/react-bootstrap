@@ -17,6 +17,15 @@ const AccordionShow = (props) => {
 
   console.log(props);
 
+  //  deleteCat = () => {
+  //   console.log("id");
+  // }
+
+   let handleClick = (props) => {
+    console.log('this is:', props);
+  }
+
+  
   return (
     <div>
       <Accordion defaultActiveKey="0">
@@ -27,7 +36,7 @@ const AccordionShow = (props) => {
                 <Col lg="10"  xs="9">
                   <Row>
                     <Col md={{  offset: 2 }}>
-                      <h6>{category} name</h6>
+                      <h6>{category}</h6>
                     </Col>
                   </Row>
                 </Col>
@@ -49,8 +58,8 @@ const AccordionShow = (props) => {
                     
                     </Col>
                     <Col sm lg="3" xs="6">
-                      <h6>
-                        <MdDelete />
+                      <h6  >
+                        <MdDelete onClick={ () => props.clickHander(props.contact.id)}/>
                       </h6>
                     </Col>
                   </Row>
