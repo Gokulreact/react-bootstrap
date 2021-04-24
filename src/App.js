@@ -19,7 +19,7 @@ function App() {
 
   const [contacts, setContacts] = useState([]);
   const [subdatas, setSubdatas] = useState([]);
-  console.log(subdatas)
+  //console.log(subdatas)
 
 
   const retrieveContacts = async () => {
@@ -128,10 +128,10 @@ function App() {
 
   useEffect(() => {
     //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-    console.log("i am exwecuted")
+    //console.log("i am exwecuted")
   }, [subdatas]);
 
-  console.log(subdatas)
+  //console.log(subdatas)
 
   return (
     <div className="App">

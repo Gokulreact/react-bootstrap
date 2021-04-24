@@ -63,7 +63,7 @@ class SubCatDatas extends Component {
       <div>
         <div className="card-list">
           {this.state.data.map((el) => {
-           console.log(el);
+          // console.log(el);
 
             if (el.catid === this.state.categoryName) {
               return (

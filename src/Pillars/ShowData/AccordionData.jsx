@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 // import Accordion from "react-bootstrap/Accordion";
 // import Card from "react-bootstrap/Card";
 const AccordionData = (props) => {
- console.log("Have Data", props)
+ //console.log("Have Data", props)
 
 /*
 const myData = function(data) {
@@ -37,7 +37,7 @@ const myData = function(data) {
   const renderPropsData = props.contacts.map((contact) => {
 
     //console.log(contact)
-    let deleteCatHandler =(id) =>{
+    const deleteCatHandler =(id) =>{
       console.log("I am cat hab=ndler", id)
     }
     

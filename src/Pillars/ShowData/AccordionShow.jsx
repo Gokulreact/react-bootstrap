@@ -15,16 +15,13 @@ const AccordionShow = (props) => {
   const { id, category, link, subcat } = props.contact;
   //console.log({subcat})
 
-  console.log(props);
+ // console.log(props);
 
   //  deleteCat = () => {
   //   console.log("id");
   // }
 
-   let handleClick = (props) => {
-    console.log('this is:', props);
-  }
-
+  
   
   return (
     <div>
