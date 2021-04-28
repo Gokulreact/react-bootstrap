@@ -12,7 +12,7 @@ import EditSubcategory from "./Pillars/CRUD/EditSubcategory";
 import EditCategory from "./Pillars/CRUD/EditCategory";
 
 //import AddSubData from "./Pillars/CRUD/AddSubCategory";
-
+  
 function App() {
  // const LOCAL_STORAGE_KEY = "contacts";
  
