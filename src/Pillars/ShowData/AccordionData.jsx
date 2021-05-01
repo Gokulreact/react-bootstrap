@@ -38,8 +38,32 @@ const myData = function(data) {
 
     //console.log(contact)
     const deleteCatHandler =(id) =>{
-      console.log("I am cat hab=ndler", id)
-    }
+      api.get(`http://localhost:3004/subdatas/`)
+      .then(
+        res => {
+          var datas = {...res.data}
+          var datcat = datas.tostring()
+          console.log(typeof(datcat), datcat)
+          //console.log({datas.id})  
+        
+          
+
+         
+          //console.log(datas.every(catdataid))
+          
+        }
+       
+       
+        )
+       
+        
+        
+        
+
+         
+        }
+       
+      
     
     return (
       <div >
