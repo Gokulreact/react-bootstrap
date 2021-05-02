@@ -42,8 +42,8 @@ const myData = function(data) {
       .then(
         res => {
           var datas = {...res.data}
-          var datcat = datas.tostring()
-          console.log(typeof(datcat), datcat)
+          //var datcat = datas.tostring()
+          //console.log(typeof(datcat), datcat)
           //console.log({datas.id})  
         
           
