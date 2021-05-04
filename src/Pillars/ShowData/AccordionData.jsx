@@ -6,6 +6,8 @@ import api from "../../api/jsonconnect";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 // import Accordion from "react-bootstrap/Accordion";
 // import Card from "react-bootstrap/Card";
 const AccordionData = (props) => {
@@ -42,9 +44,55 @@ const myData = function(data) {
       .then(
         res => {
           var datas = {...res.data}
+          const headers = Object.values(datas)
           //var datcat = datas.tostring()
           //console.log(typeof(datcat), datcat)
-          //console.log({datas.id})  
+      
+          console.log(headers)
+          
+          const result = (headers.filter(word => word.catid === id)) 
+        
+        var catlen = result.length;
+        console.log(catlen)  
+        if(catlen === 0){
+          confirmAlert({
+
+            title: 'Confirm to Delete',
+            message: 'Are you sure to do this.',
+            buttons: [
+              {
+                label: 'Yes',
+                
+              },
+              {
+                label: 'No',
+                //onClick: () => alert('Click No')
+              }
+            ]
+          });
+        
+        }else{
+          confirmAlert({
+
+            title: 'Please make Application Empty',
+            message: 'You have dats in Application list',
+            buttons: [
+              {
+                label: 'Ok',
+                
+              },
+              // {
+              //   label: 'No',
+              //   //onClick: () => alert('Click No')
+              // }
+            ]
+          });
+        }      
+
+
+
+          
+          
         
           
 

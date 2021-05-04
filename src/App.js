@@ -5,6 +5,7 @@ import api from "./api/jsonconnect";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Title from "./Pillars/Header/Title";
 import AccordionData from "./Pillars/ShowData/AccordionData";
+import AccordionDatas from "./Pillars/ShowData/AccordionDatas";
 import AddData from "./Pillars/CRUD/AddData";
 import AddSubData from "./Pillars/CRUD/AddSubData";
 //import axios from "axios";
@@ -146,6 +147,20 @@ function App() {
         render = {(props) => 
           (
         <AccordionData 
+          {...props}
+          contacts={contacts} 
+          getContactId={removeContactHandler}
+          />
+          
+          )}
+        />
+
+        <Route
+        path="/accord"
+        exact
+        render = {(props) => 
+          (
+        <AccordionDatas
           {...props}
           contacts={contacts} 
           getContactId={removeContactHandler}
