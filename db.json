@@ -1,20 +1,8 @@
 {
   "contacts": [
     {
-      "category": "cat1.0.1",
-      "id": "30f4cf39-f3ec-4285-a19f-46c51f669310"
-    },
-    {
-      "category": "cat2.1",
-      "id": "5d9ed011-71e0-4e1f-a1df-dcfd9270fa0b"
-    },
-    {
-      "id": "244ce220-e00a-46d9-8e9b-80ebeb4dcdfa",
-      "category": "cat3"
-    },
-    {
-      "id": "244ce220-e00a-46d9-8e9b-80ebeb4dcdfb",
-      "category": "cat4"
+      "category": "cat3.1",
+      "id": "244ce220-e00a-46d9-8e9b-80ebeb4dcdfa"
     },
     {
       "id": "fab84895-485d-420e-8c36-782762f6c723",
@@ -23,10 +11,6 @@
     {
       "id": "9c246d4c-1aca-4854-a1b1-32a9261c2807",
       "category": "Cat new"
-    },
-    {
-      "id": "9b8b73a6-0859-4f4e-aef2-55b5fa301500",
-      "category": "cat 445"
     }
   ],
   "subdatas": [
@@ -57,13 +41,6 @@
       "category": "cat3",
       "subcategory": "sub new 3",
       "link": "link 3"
-    },
-    {
-      "id": "4de0f490-a6b6-4feb-b46a-d48f97a34885",
-      "subcategory": "sub2.11",
-      "link": "link2.1",
-      "category": "cat2",
-      "catid": "5d9ed011-71e0-4e1f-a1df-dcfd9270fa0b"
     }
   ]
 }

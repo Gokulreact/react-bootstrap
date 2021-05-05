@@ -62,6 +62,13 @@ const myData = function(data) {
             buttons: [
               {
                 label: 'Yes',
+                onClick: () => {
+                  api.delete(`http://localhost:3004/contacts/${id}`)  
+                  .then(res => {   
+                    window.location.reload(true); 
+                    console.log(res)
+                  })
+                }
                 
               },
               {
@@ -79,7 +86,7 @@ const myData = function(data) {
             buttons: [
               {
                 label: 'Ok',
-                
+               
               },
               // {
               //   label: 'No',
