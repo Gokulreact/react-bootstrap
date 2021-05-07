@@ -56,7 +56,7 @@ const AccordionShow = (props) => {
                     </Col>
                     <Col sm lg="3" xs="6">
                       <h6  >
-                        <MdDelete onClick={ () => props.clickHander(props.contact.id)}/>
+                        <MdDelete onClick={ () => props.clickHander(props.contact.id)} className="Chover"/>
                       </h6>
                     </Col>
                   </Row>

@@ -81,8 +81,8 @@ const myData = function(data) {
         }else{
           confirmAlert({
 
-            title: 'Please make Application Empty',
-            message: 'You have dats in Application list',
+            title: 'Application List is not Empty',
+            message: 'Try again after delete the application list',
             buttons: [
               {
                 label: 'Ok',

@@ -1,10 +1,6 @@
 {
   "contacts": [
     {
-      "category": "cat3.1",
-      "id": "244ce220-e00a-46d9-8e9b-80ebeb4dcdfa"
-    },
-    {
       "id": "fab84895-485d-420e-8c36-782762f6c723",
       "category": "cat5"
     },
@@ -34,13 +30,6 @@
       "category": "Cat new",
       "subcategory": "Sub new 1",
       "link": "Sub link new"
-    },
-    {
-      "id": "db813806-a93b-40a4-a2f9-cd8333c6572c",
-      "catid": "244ce220-e00a-46d9-8e9b-80ebeb4dcdfa",
-      "category": "cat3",
-      "subcategory": "sub new 3",
-      "link": "link 3"
     }
   ]
 }

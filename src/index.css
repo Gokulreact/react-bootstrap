@@ -12,3 +12,14 @@ body {
     rgba(0, 128, 128, 1) 100%
   );
 }
+.Chover{
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+  .card-list .links {
+    width: 100% !important;
+  }
+}
+

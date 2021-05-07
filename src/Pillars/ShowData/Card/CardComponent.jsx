@@ -20,15 +20,15 @@ const Cards = (props)  => {
    
     <Container fluid>
   <Row>
-    <Col sm={9}>
+    <Col sm={9} xs="7">
     <a  key={props.total.id} target="_blank" href={props.total.link} >
     <h4>{props.total.subcategory}</h4>
     </a>
     
     </Col>
-    <Col sm={3}>
+    <Col sm={3} xs="5">
       <Row>
-      <Col sm={6}>
+      <Col sm={6} xs="4" >
       <Link 
       to={{ pathname: `/editApplication`, state: {
         subdatas : props.total
@@ -39,7 +39,8 @@ const Cards = (props)  => {
       </Link>
       </Col>
         
-         <Col sm={6}><MdDelete  onClick={() => props.clickHander(props.total.id)}/></Col>
+         <Col sm={6} xs="4"><MdDelete  onClick={() => props.clickHander(props.total.id)}
+         className="Chover"/></Col>
        </Row>
     </Col>
 
