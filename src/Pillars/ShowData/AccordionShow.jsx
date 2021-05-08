@@ -68,6 +68,8 @@ const AccordionShow = (props) => {
           <Accordion.Collapse eventKey={id}>
             <Card.Body>
               <SubCatDatas catId={id} />
+              <Row>
+              <Col md={{ offset: 10 }} >
               <Link
                 to={{
                   pathname: "/addsubcategory",
@@ -81,6 +83,10 @@ const AccordionShow = (props) => {
                   Add Application
                 </Button>
               </Link>
+              </Col>
+              
+              </Row>
+              
             </Card.Body>
           </Accordion.Collapse>
         </Card>

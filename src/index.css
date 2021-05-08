@@ -15,7 +15,14 @@ body {
 .Chover{
   cursor: pointer;
 }
+.logo-box {
+  margin: 20px 0  !important;
+}
 
+button.btn.btn-primary {
+  margin: 0 auto;
+  display: block;
+}
 
 @media screen and (max-width: 600px) {
   .card-list .links {

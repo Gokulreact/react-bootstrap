@@ -1,29 +1,11 @@
 {
   "contacts": [
     {
-      "id": "fab84895-485d-420e-8c36-782762f6c723",
-      "category": "cat5"
-    },
-    {
       "id": "9c246d4c-1aca-4854-a1b1-32a9261c2807",
       "category": "Cat new"
     }
   ],
   "subdatas": [
-    {
-      "id": "e56f30c2-6389-41e2-94a5-570f40494a71",
-      "catid": "fab84895-485d-420e-8c36-782762f6c723",
-      "category": "cat5",
-      "subcategory": "sub5",
-      "link": "link5"
-    },
-    {
-      "id": "8e2e1378-97fe-4687-9047-1337cc4fb631",
-      "catid": "fab84895-485d-420e-8c36-782762f6c723",
-      "category": "cat5",
-      "subcategory": "sub5.1",
-      "link": "link5.1"
-    },
     {
       "id": "93f97dcf-fde5-4586-8728-0a84d90a8e69",
       "catid": "9c246d4c-1aca-4854-a1b1-32a9261c2807",
